@@ -1,0 +1,6 @@
+<yandex>
+    <macros>
+        <shard>01</shard>
+        <!-- <replica>example05-02-1.yandex.ru</replica> -->
+    </macros>
+</yandex>

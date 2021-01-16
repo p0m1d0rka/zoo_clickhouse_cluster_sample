@@ -1,0 +1,4 @@
+<yandex>
+    <!-- Path to folder where users and roles created by SQL commands are stored. -->
+    <access_control_path>/var/lib/clickhouse/access/</access_control_path>
+</yandex>
