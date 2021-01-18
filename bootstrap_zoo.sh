@@ -2,7 +2,7 @@
 echo "Downloading and installing openjdk..."
 curl https://download.java.net/java/GA/jdk15.0.1/51f4f36ad4ef43e39d0dfdbaf6549e32/9/GPL/openjdk-15.0.1_linux-x64_bin.tar.gz > /tmp/openjsk-15.0.1.tar.gz
 tar -xf /tmp/openjsk-15.0.1.tar.gz -C /etc/
-rm /tmp/openjsk-15.0.1.tar.gz
+rm -f /tmp/openjsk-15.0.1.tar.gz
 export PATH=$PATH:/etc/jdk-15.0.1/bin
 
 # install dependencies
@@ -13,7 +13,7 @@ yum install -y cppunit python-setuptools openssl openssl-devel nano
 echo "Dowloading zookeepeer..."
 curl https://apache-mirror.rbc.ru/pub/apache/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz > /tmp/apache-zookeeper-3.6.2-bin.tar.gz
 tar -xf /tmp/apache-zookeeper-3.6.2-bin.tar.gz -C /etc/
-rm /tmp/apache-zookeeper-3.6.2-bin.tar.gz
+rm -f /tmp/apache-zookeeper-3.6.2-bin.tar.gz
 
 # cp standalone cfg
 # cp /vagrant/zoo_standalone.cfg /etc/apache-zookeeper-3.6.2-bin/conf/zoo.cfg
@@ -33,6 +33,11 @@ touch /var/lib/zookeeper/initialize
 # creating myid file, expecting zoo id in 4 byte
 # ex zoo1, zoo2, zoo3
 hostname | cut -b 4 >> /var/lib/zookeeper/myid
+
+#add zookeeper user
+useradd zookeeper
+chown -R zookeeper /var/lib/zookeeper/
+chown -R zookeeper /etc/apache-zookeeper-3.6.2-bin/
 
 # start zookeeper
 /etc/apache-zookeeper-3.6.2-bin/bin/zkServer.sh start
