@@ -1,0 +1,44 @@
+<yandex>
+<storage_configuration>
+    <disks>
+        <fast_disk>
+            <path>/opt/fast/clickhouse_disk/</path>
+            <keep_free_space_bytes>1048576</keep_free_space_bytes>
+        </fast_disk>
+        <slow_disk>
+            <path>/opt/slow/clickhouse_disk/</path>
+            <keep_free_space_bytes>10485760</keep_free_space_bytes>
+        </slow_disk>
+    </disks>
+    <policies>
+        <hot_only>
+            <volumes>
+                <hot_only_volume>
+                    <disk>fast_disk</disk>
+                </hot_only_volume>
+            </volumes>
+        </hot_only>
+
+        <cold_only>
+            <volumes>
+                <cold_only_volume>
+                    <disk>slow_disk</disk>
+                </cold_only_volume>
+            </volumes>
+        </cold_only>
+
+        <moving_from_ssd_to_hdd>
+            <volumes>
+                <hot>
+                    <disk>fast_disk</disk>
+                </hot>
+                <cold>
+                    <disk>slow_disk</disk>
+                </cold>
+            </volumes>
+            <move_factor>0.2</move_factor>
+        </moving_from_ssd_to_hdd>
+
+    </policies>
+</storage_configuration>
+</yandex>

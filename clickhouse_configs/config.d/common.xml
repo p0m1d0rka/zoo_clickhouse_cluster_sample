@@ -1,0 +1,5 @@
+<yandex>
+    <path>/opt/fast/clickhouse/</path>
+    <tmp_path>/opt/fast/clickhouse/tmp/</tmp_path>
+    <user_files_path>/opt/fast/clickhouse/user_files/</user_files_path>
+</yandex>

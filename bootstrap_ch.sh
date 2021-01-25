@@ -9,6 +9,17 @@ yum-config-manager --add-repo https://repo.clickhouse.tech/rpm/stable/x86_64
 yum install -y clickhouse-server clickhouse-client
 
 yum install -y nano
+
+# create data folders
+mkdir -p /opt/fast/clickhouse_disk
+chown -R /opt/fast/clickhouse_disk
+mkdir -p /opt/slow/clickhouse_disk
+chown -R /opt/slow/clickhouse_disk
+mkdir -p /opt/fast/clickhouse
+chown -R /opt/fast/clickhouse
+mkdir -p /opt/slow/clickhouse
+chown -R /opt/slow/clickhouse
+
 # change owner to clickhouse for clickhouse folder
 chown -R clickhouse:clickhouse /var/lib/clickhouse
 chown -R clickhouse:clickhouse /etc/clickhouse-server
