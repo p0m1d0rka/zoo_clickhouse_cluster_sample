@@ -12,5 +12,6 @@
             <host>zoo3</host>
             <port>2181</port>
         </node>
+        <identity>clickhouse:password</identity>
     </zookeeper>
 </yandex>
