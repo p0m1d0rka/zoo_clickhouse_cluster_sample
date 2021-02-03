@@ -1,0 +1,7 @@
+<yandex>
+    <profiles>
+        <default>
+            <max_memory_usage>40000000000</max_memory_usage>
+        </default>
+    </profiles>
+</yandex>
