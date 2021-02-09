@@ -2,4 +2,11 @@
     <path>/opt/fast/clickhouse/</path>
     <tmp_path>/opt/fast/clickhouse/tmp/</tmp_path>
     <user_files_path>/opt/fast/clickhouse/user_files/</user_files_path>
+    <logger>
+        <level>trace</level>
+        <log>/opt/slow/clickhouse/log/clickhouse-server.log</log>
+        <errorlog>/opt/slow/clickhouse/log/clickhouse-server.err.log</errorlog>
+        <size>1000M</size>
+        <count>10</count>
+    </logger>    
 </yandex>

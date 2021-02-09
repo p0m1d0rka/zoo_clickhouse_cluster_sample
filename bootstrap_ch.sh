@@ -19,6 +19,8 @@ mkdir -p /opt/fast/clickhouse
 chown -R clickhouse:clickhouse /opt/fast/clickhouse
 mkdir -p /opt/slow/clickhouse
 chown -R clickhouse:clickhouse /opt/slow/clickhouse
+mkdir -p /opt/slow/clickhouse/log
+chown -R clickhouse:clickhouse /opt/slow/clickhouse/log
 
 # change owner to clickhouse for clickhouse folder
 chown -R clickhouse:clickhouse /var/lib/clickhouse
