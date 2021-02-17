@@ -1,0 +1,18 @@
+version: "3"
+services:
+    postgres:
+        image: postgres:13.2
+        restart: always
+        volumes:
+            - ./pgdb/:/var/lib/postgresql/data
+        env_file:
+            -  env
+    
+    metabase:
+      image: metabase_with_clh
+      restart: always
+      ports:
+        - 3002:3000
+      env_file: 
+        - env
+      

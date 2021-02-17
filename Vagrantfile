@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
       provisioner.add_host '192.168.50.13', ['zoo3']
       provisioner.add_host '192.168.50.21', ['ch01']
       provisioner.add_host '192.168.50.22', ['ch02']
+      provisioner.add_host '192.168.50.31', ['metabase']
     end
 
     config.vm.define "zoo1", primary: true do |node|
@@ -65,4 +66,10 @@ Vagrant.configure("2") do |config|
       node.vm.provision :shell, inline: 'clickhouse-client --database=test --query="$(cat /vagrant/scripts/create_replicated_hits_2.sql)" --multiline'      
     end    
 
+    config.vm.define "metabase" do |node|
+      node.vm.hostname = "metabase"
+      node.vm.network "forwarded_port", guest: 3000, host: 3002
+      node.vm.network "private_network", ip: "192.168.50.31"
+      node.vm.provision :shell, path: 'install_docker.sh'
+    end
   end
