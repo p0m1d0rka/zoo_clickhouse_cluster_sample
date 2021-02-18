@@ -12,7 +12,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compo
 chmod +x /usr/bin/docker-compose
 
 # build image
-docker build -t metabase_with_clickhouse /vagrant/metabase
+docker build -t metabase_with_clh -f /vagrant/metabase/Dockerfile /vagrant/metabase
 
 # run metabase with postgres
 docker-compose --file /vagrant/metabase/docker-compose.yml up -d
